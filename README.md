@@ -1,0 +1,1 @@
+Replace the stock `archivesspace/stylesheets/as-ead-pdf.xsl` with `stylesheets/as-ead-pdf.xsl` and copy `stylesheets/bhl-fa-smlogo.gif` to the `archivesspace/stylesheets/` directory.

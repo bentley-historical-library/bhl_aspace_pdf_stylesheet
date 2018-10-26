@@ -373,7 +373,14 @@
                                     <xsl:apply-templates select="child::*/ead:head"/>        
                                 </xsl:when>
                                 <xsl:otherwise>
-                                    <xsl:value-of select="ead:did/ead:unittitle"/>
+                                        <xsl:apply-templates select="child::*/ead:unittitle"/>
+                                        <xsl:if test="(string-length(child::*/ead:unittitle[1]) &gt; 1) and (string-length(child::*/ead:unitdate[1]) &gt; 1)">, </xsl:if>
+                                        <xsl:for-each select="child::*/ead:unitdate">
+                                        <xsl:apply-templates select="."/>
+                                        <xsl:if test="position()!=last()">
+                                                        <xsl:text>, </xsl:text>
+                                        </xsl:if>
+                                        </xsl:for-each>
                                 </xsl:otherwise>
                             </xsl:choose>    
                         </fo:bookmark-title>
@@ -387,7 +394,14 @@
                                         <xsl:apply-templates select="child::*/ead:head"/>        
                                     </xsl:when>
                                     <xsl:otherwise>
-                                        <xsl:value-of select="ead:did/ead:unittitle"/>
+                                        <xsl:apply-templates select="child::*/ead:unittitle"/>
+                                        <xsl:if test="(string-length(child::*/ead:unittitle[1]) &gt; 1) and (string-length(child::*/ead:unitdate[1]) &gt; 1)">, </xsl:if>
+                                        <xsl:for-each select="child::*/ead:unitdate">
+                                        <xsl:apply-templates select="."/>
+                                        <xsl:if test="position()!=last()">
+                                                        <xsl:text>, </xsl:text>
+                                        </xsl:if>
+                                        </xsl:for-each>
                                     </xsl:otherwise>
                                 </xsl:choose>    
                             </fo:bookmark-title>
@@ -550,6 +564,13 @@
                                     </xsl:when>
                                     <xsl:otherwise>
                                         <xsl:apply-templates select="child::*/ead:unittitle"/>
+                                        <xsl:if test="(string-length(child::*/ead:unittitle[1]) &gt; 1) and (string-length(child::*/ead:unitdate[1]) &gt; 1)">, </xsl:if>
+                                        <xsl:for-each select="child::*/ead:unitdate">
+                                        <xsl:apply-templates select="."/>
+                                        <xsl:if test="position()!=last()">
+                                                        <xsl:text>, </xsl:text>
+                                        </xsl:if>
+                                        </xsl:for-each>
                                     </xsl:otherwise>
                                 </xsl:choose>    
                             </fo:basic-link>                    
@@ -568,6 +589,13 @@
                                         </xsl:when>
                                         <xsl:otherwise>
                                             <xsl:apply-templates select="child::*/ead:unittitle"/>
+                                            <xsl:if test="(string-length(child::*/ead:unittitle[1]) &gt; 1) and (string-length(child::*/ead:unitdate[1]) &gt; 1)">, </xsl:if>
+                                            <xsl:for-each select="child::*/ead:unitdate">
+                                            <xsl:apply-templates select="."/>
+                                            <xsl:if test="position()!=last()">
+                                                            <xsl:text>, </xsl:text>
+                                            </xsl:if>
+                                            </xsl:for-each>
                                         </xsl:otherwise>
                                     </xsl:choose>    
                                 </fo:basic-link>                    
